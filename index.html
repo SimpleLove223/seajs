@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="base.css"/>
+		<!--<link rel="stylesheet" href="css/min.css" />-->
+		
+		<!--<script type="text/javascript" src="js/zepto.js" ></script>-->
+		<style>
+		  #wrap{
+		    background: gray;
+		  }
+		  li{	
+		    height: 31px;
+		  }
+		  li span{
+		    display: inline-block;
+		    width: 30px;
+		    height: 30px;
+		    background: darkgray;
+		    margin: 1px 0 0 1px;
+		    transition: all .3s
+		  }
+		  span.on{
+		    background: orangered;
+		  }
+		</style>
+  </head>
+  <body>
+   <ul id="wrap">
+     
+   </ul>
+  <script type="text/javascript" src="jquery-2.2.2.min.js" ></script>
+   <script type='text/javascript'>
+      
+      var x = 7;
+      var y = 5;
+          
+      //Bg 初始化
+      (function(){
+        
+        var str = '';
+        for(var i=0;i<x;i++){
+          str += '<li>';
+          for(var j=0;j<y;j++){
+            str += '<span></span>';
+          }
+          str += '</li>';
+        }
+        $("#wrap").html(str);
+      })()
+      
+      function fun(val){
+                
+        var obj = {
+          1:[[1,1],[0,2],[1,2],[2,2],[3,2],[4,2],[5,2],[6,2],[6,1],[6,3]],
+          2:[[1,0],[0,1],[0,2],[0,3],[1,4],[2,4],[3,3],[4,2],[5,1],[6,0],[6,1],[6,2],[6,3],[6,4]],
+          3:[[1,0],[0,1],[0,2],[0,3],[1,4],[2,4],[3,2],[3,3],[4,4],[5,0],[5,4],[6,1],[6,2],[6,3]],
+        };
+        
+        $('span').removeClass('on');
+        val = obj[val];
+        for(i in val){
+          var _v = val[i];          
+          $('span').eq(_v[0]*y+_v[1]).addClass('on');
+        }
+      }
+      
+      
+   </script>
+	</body>
+</html>
